@@ -94,7 +94,7 @@ def combine_images_cv2(image_paths, output_path, num=None, stair=None, frame=Non
 
 if __name__ == "__main__":
     image_paths = []
-    for i in range(10):
+    for i in range(13):
         image_paths.append(f"output/mario4blog_{i}.png")
-    output_path = "merged_output.png"
-    combine_images_cv2(image_paths, output_path, num=4, padding=[10])
+    output_path = "output/merged_output.png"
+    combine_images_cv2(image_paths, output_path, num=13, frame=(18,18), padding=[0])
