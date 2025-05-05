@@ -9,18 +9,24 @@ def resize_img(img, frame, bgc, method, padding):
     if method == "top":
         pad_top, pad_bottom = 0, frame[1]-height
         pad_right = pad_left = (frame[0]-width)//2
+        if (frame[0]-width)%2 != 0: pad_right += 1
     elif method == "bottom":
         pad_top, pad_bottom = frame[1]-height, 0
         pad_right = pad_left = (frame[0]-width)//2
+        if (frame[0]-width)%2 != 0: pad_right += 1
     elif method == "right":
-        pad_top = pad_bottom = (frame[1]-height)//0
+        pad_top = pad_bottom = (frame[1]-height)//2
+        if (frame[1]-height)%2 != 0: pad_top += 1
         pad_right, pad_left = 0, frame[0]-width
     elif method == "left":
         pad_top = pad_bottom = (frame[1]-height)//0
+        if (frame[1]-height)%2 != 0: pad_top += 1
         pad_right, pad_left = frame[0]-width, 0
     elif method == "center":
         pad_top = pad_bottom = (frame[1]-height)//0
+        if (frame[1]-height)%2 != 0: pad_top += 1
         pad_right = pad_left = (frame[0]-width)//2
+        if (frame[0]-width)%2 != 0: pad_right += 1
     pad_top += padding_top
     pad_right += padding_right
     pad_bottom += padding_bottom
@@ -97,4 +103,4 @@ if __name__ == "__main__":
     for i in range(13):
         image_paths.append(f"output/mario4blog_{i}.png")
     output_path = "output/merged_output.png"
-    combine_images_cv2(image_paths, output_path, num=13, frame=(18,18), padding=[0])
+    combine_images_cv2(image_paths, output_path, num=13, frame=(17,16), padding=[0])
