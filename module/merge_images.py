@@ -99,8 +99,16 @@ def combine_images_cv2(image_paths, output_path, num=None, stair=None, frame=Non
     print(f"이미지가 {output_path}에 저장되었습니다.")
 
 if __name__ == "__main__":
-    image_paths = []
-    for i in range(13):
-        image_paths.append(f"output/mario4blog_{i}.png")
-    output_path = "output/merged_output.png"
-    combine_images_cv2(image_paths, output_path, num=13, frame=(17,16), padding=[0])
+    # image_paths = []
+    # for i in range(13):
+    #     image_paths.append(f"output/mario4blog_{i}.png")
+    # output_path = "output/merged_output.png"
+    # combine_images_cv2(image_paths, output_path, num=13, frame=(17,16), padding=[0])
+    
+    image_paths = ["images/ground-block.png", "images/hitting-block.png", "images/up-block.png", "images/down-block.png", "images/left-block.png", "images/right-block.png"]
+    output_path = "output/usedBlock.png"
+    combine_images_cv2(image_paths, output_path, num=len(image_paths))
+    
+    image_paths = ["images/pipe1.png", "images/pipe2.png", "images/pipe3.png", "images/pipe4.png", "images/pipe5.png", "images/pipeH.png", "images/pipeR.png"]
+    output_path = "output/usedPipe.png"
+    combine_images_cv2(image_paths, output_path, num=len(image_paths))
